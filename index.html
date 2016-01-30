@@ -11,6 +11,22 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="https://root.cern.ch/js/latest/scripts/JSRootCore.js?2d"></script>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var filename = "results/hist-test_ttbar_AOD.pool.root.root";
+            JSROOT.OpenFile(filename, function(file) {
+               file.ReadObject("nmuons;1", function(obj) {
+                  JSROOT.draw("drawing", obj, "hist");
+               });
+            });
+        });
+    </script>
+
   </head>
   <body>
     <div class="wrapper">
@@ -38,6 +54,9 @@
         <p>These are the contents of the <tt>/results</tt> directory</p>
         <img src="results/plot.png"/>
 
+        <p>.. and via ROOTJS directly from file</p>
+        <div id="drawing"></div>
+        
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/lukasheinrich">lukasheinrich</a></p>
