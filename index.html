@@ -21,7 +21,7 @@
             var filename = "results/hist-test_ttbar_AOD.pool.root.root";
             JSROOT.OpenFile(filename, function(file) {
                file.ReadObject("nmuons;1", function(obj) {
-                  JSROOT.draw("drawing", obj, "hist");
+                  JSROOT.draw("drawing", obj, "histtext");
                });
             });
         });
